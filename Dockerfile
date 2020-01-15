@@ -12,6 +12,5 @@ RUN apt update && apt install libssl-dev -y
 WORKDIR /usr/bin
 COPY --from=dynomite-builder /dynomite/conf/dynomite.pem .
 COPY --from=dynomite-builder /dynomite/src/dynomite .
-RUN echo "net.ipv4.ip_nonlocal_bind=1" > /etc/sysctl.conf
 RUN chmod +x /usr/bin/dynomite
 CMD ["/usr/bin/dynomite"]
